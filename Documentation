@@ -1,0 +1,150 @@
+### Todo App Documentation
+
+#### Overview
+This is a simple Todo application built using HTML, CSS, and vanilla JavaScript. It allows users to add, delete, and clear tasks. Tasks are stored locally in the browser's localStorage.
+ 
+
+#### Dependencies
+- **Font Awesome**: Uses Font Awesome icons for the plus and trash icons.
+
+#### How to Use
+1. Input a task in the input field.
+2. Click the plus button to add the task to the list.
+3. Click the trash icon next to a task to delete it.
+4. Click the "Clear all" button in the footer to clear all tasks.
+
+#### Note
+- Tasks are stored locally in the browser's localStorage, so they will persist even after refreshing the page or closing the browser.
+
+
+#### Html Documentation
+
+
+### Document Type Declaration
+- `<!DOCTYPE html>`: Declares the document type and version of HTML being used.
+
+### HTML Structure
+- `<html lang="en">`: Defines the root element of the HTML document and specifies the language.
+- `<head>`: Contains meta-information about the HTML document such as character encoding, viewport settings, styles, and scripts.
+  - `<meta charset="UTF-8">`: Sets the character encoding to UTF-8.
+  - `<meta name="viewport" content="width=device-width, initial-scale=1.0">`: Configures the viewport for responsive design.
+  - `<title>`: Sets the title of the HTML document.
+
+### Body Content
+- `<body>`: Contains the visible content of the HTML document.
+  - `<div class="wrapper">`: Acts as a container for the entire content of the todo app.
+    - `<header>`: Displays the title of the todo app.
+    - `<div class="input-field">`: Contains an input field for adding new todo items and a button to add them.
+      - `<input type="text">`: Allows users to input new todo items.
+      - `<button>`: Adds new todo items when clicked.
+    - `<ul class="todolist">`: Displays the list of todo items.
+      - List items (`<li>`): Represent individual todo items within the list.
+    - `<footer>`: Displays the count of pending tasks and a button to clear all tasks.
+
+### Comments
+- Comments within the HTML code provide explanations and placeholders for where dynamic content will be inserted.
+
+This HTML code provides the structure and static content for a todo list application.
+
+
+
+#### CSS documentation
+
+
+
+### CSS Styles
+- `@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');`: Imports the Google Font "Poppins" with different weights for use in the document.
+
+#### Global Styles:
+- `*`: Selects all elements in the document.
+  - `margin: 0; padding: 0; box-sizing: border-box;`: Resets margin and padding and sets box-sizing to border-box for all elements.
+  - `font-family: "Poppins", sans-serif;`: Sets the font family for all elements to "Poppins" and fallback to the generic sans-serif font family.
+
+- `body`: Selects the body element.
+  - `height: 100vh; width: 100%;`: Sets the height and width of the body to 100% of the viewport height and width.
+  - `background: linear-gradient(to bottom, #68eacc 0%, #497be8 100%);`: Applies a linear gradient background color to the body.
+
+- `.wrapper`: Selects elements with the class "wrapper".
+  - `display: flex; justify-content: center; align-items: center;`: Centers the content horizontally and vertically using flexbox.
+  - `max-width: 400px; width: 100%;`: Sets the maximum width to 400px and 100% width for responsiveness.
+  - `flex-direction: column;`: Arranges flex items in a column direction.
+  - `margin: 120px auto;`: Sets margin to 120px on top and bottom and auto on left and right for centering.
+  - `background: white; border-radius: 5px; padding: 25px;`: Applies background color, border radius, and padding to create a card-like container.
+
+#### Header Styles:
+- `.wrapper header`: Selects the header element inside the wrapper.
+  - `font-size: 30px; font-weight: 600;`: Sets font size and weight for the header.
+
+#### Input Field Styles:
+- `.wrapper .input-field`: Selects the input-field class inside the wrapper.
+  - `display: flex; height: 45px; width: 100%; margin: 20px 0;`: Configures the input field container as a flexbox with specific height, width, and margins.
+- `.input-field input`: Selects the input element inside the input-field.
+  - `width: 85%; height: 100%; border: 1px solid #ccc; padding-left: 15px; border-radius: 3px; outline: none;`: Sets the input field width, height, border, padding, border radius, and removes outline.
+- `.input-field button`: Selects the button element inside the input-field.
+  - `width: 60px; height: 100%; border: none; outline: none; background: #8e49e8; color: #fff; margin-left: 5px; border-radius: 3px; cursor: pointer; font-size: 22px;`: Sets button width, height, background color, text color, margin, border radius, cursor, and font size.
+
+#### Todo List Styles:
+- `.todolist`: Selects elements with the class "todolist".
+  - `display: flex; flex-direction: column; gap: 10px; align-self: flex-start; width: 100%; justify-content: center; align-items: center;`: Configures the todo list as a flex container with column direction, gap, alignment, and width.
+- `.todolist li`: Selects list items inside the todo list.
+  - `background: #fefefe; border: 1px solid #ccc; list-style: none; width: 100%; height: 50px; padding: 5px 20px; border-radius: 3px; position: relative; align-self: flex-start; display: flex; align-items: center; overflow: hidden;`: Sets styles for list items including background color, border, padding, border radius, positioning, and overflow.
+
+#### Footer Styles:
+- `.wrapper footer`: Selects the footer element inside the wrapper.
+  - `display: flex; width: 100%; justify-content: space-between; margin: 25px 0; align-items: center;`: Sets footer as a flex container with space-between alignment, margin, and alignment.
+
+- `footer button`: Selects button elements inside the footer.
+  - `font-size: 16px; padding: 10px; width: 40%;`: Sets font size, padding, and width for the buttons.
+
+This CSS code provides styling for various elements of a todo list application, including the layout, input field, todo list items, and footer.
+
+
+
+#### JS documentation
+
+
+
+### JavaScript Functions and Event Handlers:
+
+#### Variable Declarations:
+- `const userInput = document.querySelector('.input-field input');`: Selects the input field element.
+- `const addBtn = document.querySelector('.input-field button');`: Selects the button element.
+- `const todoList = document.querySelector('.todolist');`: Selects the todo list element.
+- `const deleteAllBtn = document.querySelector('footer button');`: Selects the delete all button element.
+
+#### Input Validation and Button Activation:
+- `userInput.onkeyup`: Event handler triggered when a key is released in the input field.
+  - Checks if there is input in the field.
+  - If input is present, adds the "active" class to the add button, enabling it.
+- `addBtn.onclick`: Event handler triggered when the add button is clicked.
+  - Retrieves the user input.
+  - If input is present:
+    - Retrieves todo list from local storage or creates an empty array.
+    - Adds the new todo item to the list array.
+    - Stores the updated list array in local storage.
+    - Calls the `showTask()` function to display the updated list.
+
+#### Displaying Todo Items:
+- `showTask()`: Function to display todo items.
+  - Retrieves todo list from local storage or creates an empty array.
+  - Updates the pending tasks count displayed in the footer.
+  - Constructs HTML for each todo item and appends it to the todo list.
+  - Clears the input field after adding a new todo item.
+
+#### Deleting Todo Items:
+- `deleteTask(index)`: Function to delete a specific todo item.
+  - Retrieves todo list from local storage.
+  - Removes the todo item at the specified index from the list array.
+  - Updates local storage with the modified list.
+  - Calls `showTask()` to update the displayed list.
+
+#### Deleting All Todo Items:
+- `deleteAllBtn.onclick`: Event handler triggered when the delete all button is clicked.
+  - Resets the list array to an empty array.
+  - Updates local storage with the empty list.
+  - Calls `showTask()` to update the displayed list.
+
+### Comments:
+- Comments within the JavaScript code provide explanations of each function, event handler, and variable, aiding in understanding the code's functionality.
+
+This JavaScript code provides dynamic functionality for a todo list application, including adding, displaying, and deleting todo items, as well as managing the todo list data in local storage.
